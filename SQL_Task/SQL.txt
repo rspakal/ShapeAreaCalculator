@@ -1,0 +1,16 @@
+У¬ базе данных MS SQL Server есть продукты и категории. ќдному продукту может соответствовать много категорий, в одной категории может быть много продуктов.Ф
+—ущности Product и Category имеют отношение многие ко многим, следовательно, должна быть таблица св€зей Ц ProductCategories
+
+Products: содержит столбцы ProductID и ProductName
+Categories: содержит столбцы CategoryID и CategoryName
+ProductCategories: содержит столбцы ProductID и CategoryID
+
+SELECT 
+    p.ProductName, 
+    c.CategoryName
+FROM 
+    Products p
+LEFT JOIN 
+    ProductCategories pc ON p.ProductID = pc.ProductID
+LEFT JOIN 
+    Categories c ON pc.CategoryID = c.CategoryID
