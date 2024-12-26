@@ -14,21 +14,22 @@ namespace ShapeAreaCalculator
 
         private bool IsRightTriangle()
         {
-            return Math.Pow(sides[2], 2) == (Math.Pow(sides[0], 2) + Math.Pow(sides[1], 2));
-        }
-        public double CalculateArea()
-        {
-            foreach (var side in sides)
+         foreach (var side in sides)
             {
                 if (side <= 0)
                     throw new ArgumentException("Invalid value for a side lenght");
 
             }
-
-            if (sides[0] + sides[1] <= sides[2] || sides[0] + sides[1] <= sides[2] || sides[0] + sides[1] <= sides[2])
+            
+           if (sides[0] + sides[1] <= sides[2] || sides[0] + sides[1] <= sides[2] || sides[0] + sides[1] <= sides[2])
             {
                 throw new ArgumentException("No triangle with provided sides");
             }
+            
+            return Math.Pow(sides[2], 2) == (Math.Pow(sides[0], 2) + Math.Pow(sides[1], 2));
+        }
+        public double CalculateArea()
+        {
 
             if (IsRightTriangle())
             {
